@@ -10,7 +10,7 @@ public class Login extends JFrame implements ActionListener {
 
     Login(){
        setSize(1000,500);
-       setLocation(500,150);
+       setLocation(350,150);
        getContentPane().setBackground(Color.WHITE);
        setLayout(null);
 
@@ -64,8 +64,10 @@ public class Login extends JFrame implements ActionListener {
          setVisible(false);
          new Rules(userName.getText());
      } else if (ae.getSource()==exit) {
-         new AlertBox();
-         setVisible(false);
+         int result = JOptionPane.showConfirmDialog(null,"Do you want to close the quiz ?","Are you sure",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+         if(result==JOptionPane.YES_OPTION){
+             setVisible(false);
+         }
      }
     }
 }

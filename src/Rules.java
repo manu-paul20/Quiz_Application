@@ -1,8 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
-import java.util.Locale;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Rules extends JFrame{
+public class Rules extends JFrame implements ActionListener {
     JButton start = new JButton("Start");
 
     Rules(String userName){
@@ -36,17 +37,23 @@ public class Rules extends JFrame{
         rules.setFont(new Font("consolas",Font.PLAIN,20));
         add(rules);
 
+
+        //start button
         start.setBounds(350,400,100,50);
         start.setFont(new Font("arial black",Font.BOLD,20));
         start.setBackground(Color.BLUE);
         start.setForeground(Color.white);
+        start.addActionListener(this);
         add(start);
 
         setVisible(true);
     }
 
-    public static void main(String[] args) {
-        new Rules("");
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+       if (ae.getSource()==start){
+           setVisible(false);
+           new Quiz();
+       }
     }
-
 }
