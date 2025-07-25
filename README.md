@@ -3,15 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Quiz Application - Java GUI Project</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f9f9fb;
-      color: #333;
-      line-height: 1.6;
-      padding: 2rem;
-    }
-    </style>
 </head>
 <body>
 
