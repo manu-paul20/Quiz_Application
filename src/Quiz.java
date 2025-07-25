@@ -57,12 +57,13 @@ public class Quiz extends JFrame{
         optionsGroup.add(opt3);
         optionsGroup.add(opt4);
 
-//        adding timer
+        //adding timer
         JLabel timer = new JLabel("00:15");
         timer.setBounds(350,10,1000,300);
         timer.setFont(new Font("consolas",Font.BOLD,100));
         add(timer);
 
+        //timer logic
         final int[] totalTime = {15};
         countDownTimer = new Timer(1000, new ActionListener(){
           @Override
