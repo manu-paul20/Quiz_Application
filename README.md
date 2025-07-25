@@ -77,11 +77,6 @@
     Instagram: <a href="https://www.instagram.com/_azaral" target="_blank">@_azaral</a>
   </p>
 
-  <div class="socials">
-    <a href="https://github.com/manu-paul20" target="_blank">GitHub 💻</a>
-    <a href="https://www.instagram.com/_azaral" target="_blank">Instagram 📸</a>
-  </div>
-
   <hr>
 
   <p><strong>🚧 Project Status:</strong> In development</p>
