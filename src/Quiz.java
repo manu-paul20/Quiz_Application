@@ -14,7 +14,11 @@ public class Quiz extends JFrame implements ActionListener{
     String[] answers;
     int row;
     private boolean isWindowOpen = true;
-    Quiz(int i){
+    private boolean isWindowVisible = true;
+    String[] userAnswers = new String[5];
+    ButtonGroup optionsGroup;
+    int finalScore;
+    Quiz(int i,int score){
 
         //window size.
         setSize(1000,800);
@@ -25,7 +29,7 @@ public class Quiz extends JFrame implements ActionListener{
 
         //adding questions
         questions = new String[5][5];
-        answers = new String[1];
+        answers = new String[5];
 
         //First question
         questions[0][0] = "What is a correct syntax to output \"Hello World\" in Java?";
@@ -57,6 +61,13 @@ public class Quiz extends JFrame implements ActionListener{
         questions[4][2] = "len";
         questions[4][3] = " .length";
         questions[4][4] = " .length()";
+
+        //answers
+        answers[0] = "System.out.println(\"Hello World\")";
+        answers[1] = "//This is a comment";
+        answers[2] = "String";
+        answers[3] = "float a = 2.8f";
+        answers[4] = " .length()";
 
         //question structure
         questionLabel = new JLabel("Question: ");
@@ -98,7 +109,7 @@ public class Quiz extends JFrame implements ActionListener{
         add(opt4);
 
         //grouping the button
-        ButtonGroup optionsGroup = new ButtonGroup();
+        optionsGroup = new ButtonGroup();
         optionsGroup.add(opt1);
         optionsGroup.add(opt2);
         optionsGroup.add(opt3);
@@ -131,20 +142,16 @@ public class Quiz extends JFrame implements ActionListener{
               });
 
                 if(totalTime[0] == -1){
-                    if(isWindowOpen){
-                        countDownTimer.stop();
-                        int result = JOptionPane.showConfirmDialog(
-                                null,
-                                "Time is over\nWanna proceed to next question ?",
-                                "Time's Up",
-                                JOptionPane.YES_NO_OPTION
-                        );
-                        if(result==JOptionPane.YES_OPTION){
-                            new Quiz(row+1);
+                    if(isWindowOpen&&isWindowVisible){
+                        if(i==4){
                             setVisible(false);
-                        }else {
-                            setVisible(false);
+                            return;
                         }
+                        if(optionsGroup.getSelection()==null){
+                            userAnswers[i] = "";
+                        }
+                        new Quiz(i+1,score);
+                        setVisible(false);
                     }
                 }
 
@@ -161,19 +168,25 @@ public class Quiz extends JFrame implements ActionListener{
         add(next);
 
         addQuestion(i);
+        finalScore = score;
     }
 
     //function to add question dynamically
     public void addQuestion(int currentRow){
         actualQuestion.setText(questions[currentRow][0]);
         opt1.setText(questions[currentRow][1]);
+        opt1.setActionCommand(questions[currentRow][1]);
         opt2.setText(questions[currentRow][2]);
+        opt2.setActionCommand(questions[currentRow][2]);
         opt3.setText(questions[currentRow][3]);
+        opt3.setActionCommand(questions[currentRow][3]);
         opt4.setText(questions[currentRow][4]);
+        opt4.setActionCommand(questions[currentRow][4]);
 
         if(currentRow == 4){
             next.setText("Submit");
         }
+        optionsGroup.clearSelection();
         row = currentRow;
     }
 
@@ -182,10 +195,23 @@ public class Quiz extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==next){
             if(row == 4){
+
                 setVisible(false);
                 return;
             }
-            new Quiz(row+1);
+            if(optionsGroup.getSelection() == null){
+                userAnswers[row] = "";
+                System.out.println(userAnswers[row]);
+            }else {
+                userAnswers[row] = optionsGroup.getSelection().getActionCommand();
+                System.out.println(userAnswers[row]);
+            }
+            if(userAnswers[row].equals(answers[row])){
+                System.out.println(finalScore);;
+                finalScore++;
+            }
+            new Quiz(row+1,finalScore);
+            isWindowVisible = false;
             setVisible(false);
         }
     }
