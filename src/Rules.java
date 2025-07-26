@@ -20,11 +20,13 @@ public class Rules extends JFrame implements ActionListener {
         heading.setFont(new Font("arial black",Font.BOLD,20));
         add(heading);
 
+
         JLabel greetingMessage = new JLabel("Hello "+userName+", Here are the rules of the quiz");
         greetingMessage.setBounds(180,3,800,50);
         greetingMessage.setFont(new Font("consolas",Font.ITALIC,20));
         add(greetingMessage);
 
+        //rules for quiz
         JLabel rules = new JLabel(
                 "<html>"+
                 "1.Only one option is correct among four<br><br>" +
@@ -49,6 +51,7 @@ public class Rules extends JFrame implements ActionListener {
         setVisible(true);
     }
 
+    //function to add button logic
     @Override
     public void actionPerformed(ActionEvent ae) {
        if (ae.getSource()==start){
