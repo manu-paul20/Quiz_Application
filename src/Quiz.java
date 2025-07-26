@@ -4,10 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.beans.PropertyChangeListener;
 
 public class Quiz extends JFrame implements ActionListener{
-    private Timer countDownTimer ;
+    final private Timer countDownTimer ;
     JButton next = new JButton("Next");
     JLabel questionLabel,actualQuestion;
     JRadioButton opt1,opt2,opt3,opt4;
