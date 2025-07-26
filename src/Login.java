@@ -56,9 +56,6 @@ public class Login extends JFrame implements ActionListener {
 
        setVisible(true);
     }
-    public static void main(String[] args) {
-        new Login();
-    }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
