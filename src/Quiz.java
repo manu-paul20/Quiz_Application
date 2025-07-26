@@ -162,6 +162,8 @@ public class Quiz extends JFrame implements ActionListener{
 
         addQuestion(i);
     }
+
+    //function to add question dynamically
     public void addQuestion(int currentRow){
         actualQuestion.setText(questions[currentRow][0]);
         opt1.setText(questions[currentRow][1]);
@@ -174,6 +176,8 @@ public class Quiz extends JFrame implements ActionListener{
         }
         row = currentRow;
     }
+
+    //function to add button logic
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==next){
