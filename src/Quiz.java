@@ -16,7 +16,7 @@ public class Quiz extends JFrame implements ActionListener{
     private boolean isWindowOpen = true;
     Quiz(int i){
 
-        //window size
+        //window size.
         setSize(1000,800);
         getContentPane().setBackground(Color.WHITE);
         setLocation(250,0);
