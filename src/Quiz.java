@@ -144,6 +144,7 @@ public class Quiz extends JFrame implements ActionListener{
                 if (totalTime[0] == -1) {
                     if (isWindowOpen && isWindowVisible) {
                         if (i == 4) {
+                            new Score((finalScore+1));
                             setVisible(false);
                             return;
                         }
@@ -195,19 +196,25 @@ public class Quiz extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==next){
             if(row == 4){
-
+                if(optionsGroup.getSelection() == null){
+                    userAnswers[row] = "";
+                }else {
+                    userAnswers[row] = optionsGroup.getSelection().getActionCommand();
+                }
+                if(userAnswers.equals(answers[row])){
+                    finalScore++;
+                }
+               new Score(finalScore+1);
                 setVisible(false);
+                isWindowVisible = false;
                 return;
             }
             if(optionsGroup.getSelection() == null){
                 userAnswers[row] = "";
-                System.out.println(userAnswers[row]);
             }else {
                 userAnswers[row] = optionsGroup.getSelection().getActionCommand();
-                System.out.println(userAnswers[row]);
             }
             if(userAnswers[row].equals(answers[row])){
-                System.out.println(finalScore);;
                 finalScore++;
             }
             new Quiz(row+1,finalScore);
