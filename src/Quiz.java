@@ -6,7 +6,6 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public class Quiz extends JFrame implements ActionListener{
-    final private Timer countDownTimer ;
     JButton next = new JButton("Next");
     JLabel questionLabel,actualQuestion;
     JRadioButton opt1,opt2,opt3,opt4;
@@ -123,41 +122,42 @@ public class Quiz extends JFrame implements ActionListener{
 
         //timer logic
         final int[] totalTime = {15};
-        countDownTimer = new Timer(1000, new ActionListener(){
-          @Override
-           public void actionPerformed(ActionEvent e) {
-                if(totalTime[0] <10){
-                    timer.setText("00:0"+ totalTime[0]);
+        //checking is Window open or not
+        Timer countDownTimer = new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (totalTime[0] < 10) {
+                    timer.setText("00:0" + totalTime[0]);
                     timer.setForeground(Color.red);
-                }else {
-                    timer.setText("00:"+ totalTime[0]);
+                } else {
+                    timer.setText("00:" + totalTime[0]);
                 }
                 totalTime[0]--;
-              //checking is Window open or not
-              addWindowListener(new WindowAdapter() {
-                  @Override
-                  public void windowClosing(WindowEvent e) {
-                      isWindowOpen = false;
-                  }
-              });
+                //checking is Window open or not
+                addWindowListener(new WindowAdapter() {
+                    @Override
+                    public void windowClosing(WindowEvent e) {
+                        isWindowOpen = false;
+                    }
+                });
 
-                if(totalTime[0] == -1){
-                    if(isWindowOpen&&isWindowVisible){
-                        if(i==4){
+                if (totalTime[0] == -1) {
+                    if (isWindowOpen && isWindowVisible) {
+                        if (i == 4) {
                             setVisible(false);
                             return;
                         }
-                        if(optionsGroup.getSelection()==null){
+                        if (optionsGroup.getSelection() == null) {
                             userAnswers[i] = "";
                         }
-                        new Quiz(i+1,score);
+                        new Quiz(i + 1, score);
                         setVisible(false);
                     }
                 }
 
-           }
+            }
 
-       });
+        });
         countDownTimer.start();
 
         //next button
