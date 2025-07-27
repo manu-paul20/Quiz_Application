@@ -32,7 +32,7 @@ public class Rules extends JFrame implements ActionListener {
                 "1.Only one option is correct among four<br><br>" +
                 "2.You will get 15 seconds for each question<br><br>"+
                 "3.Dont use ChatGPT or Google<br><br>"+
-                "3.Like this project on GitHub and add a comment<br><br>"+
+                "3.Add a <b>star<b> to this project on GitHub and follow me on <b>GitHub<b><br><br>"+
                 "<html>"
         );
         rules.setBounds(0,100,800,200);
