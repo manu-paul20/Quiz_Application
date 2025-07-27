@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Start extends JFrame implements ActionListener {
+    JButton close;
     JButton start;
     JRadioButton accept;
     Start(){
@@ -30,7 +31,7 @@ public class Start extends JFrame implements ActionListener {
         add(ownerName);
 
 
-        JLabel information = new JLabel("Some information before you start : ");
+        JLabel information = new JLabel("Some information before you close : ");
         information.setBounds(10,120,1000,30);
         information.setFont(new Font("consolas",Font.BOLD,25));
         add(information);
@@ -55,8 +56,16 @@ public class Start extends JFrame implements ActionListener {
         accept.setFont(new Font("monospace",Font.BOLD,15));
         add(accept);
 
-        start = new JButton("Start");
-        start.setBounds(750,550,100,50);
+        close = new JButton("Close");
+        close.setBounds(1000,550,100,50);
+        close.setBackground(Color.blue);
+        close.setForeground(Color.white);
+        close.addActionListener(this);
+        add(close);
+
+
+        start= new JButton("Start");
+        start.setBounds(400,550,100,50);
         start.setBackground(Color.blue);
         start.setForeground(Color.white);
         start.addActionListener(this);
@@ -65,7 +74,7 @@ public class Start extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource()==start){
+        if(e.getSource()== start){
             if(accept.isSelected()){
                 setVisible(false);
                 new Login();
@@ -73,6 +82,10 @@ public class Start extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null,"Please click on \"I understand everything\"");
             }
         }
+        if(e.getSource()==close){
+            setVisible(false);
+        }
+
     }
 
     public static void main(String[] args) {
