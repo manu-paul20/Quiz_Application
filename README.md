@@ -60,6 +60,12 @@
     <li>Quiz with 5 dynamic MCQs begins</li>
     <li>Final score is shown after the quiz</li>
   </ol>
+<div>
+  <strong><h2>⚠️ Important Note:</h2></strong><br>
+  When you run <code>Start.java</code>, the GUI may take a few seconds to fully render.<br>
+  Please wait for <strong>5–10 seconds</strong> and, if needed, <strong>shake or resize</strong> the window slightly to trigger full rendering.
+</div>
+
 
   <h2>😎 Fun Dev Quote</h2>
   <blockquote>
