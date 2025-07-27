@@ -44,7 +44,6 @@ public class Start extends JFrame implements ActionListener {
                 +"->   In Quiz.java : consolas , monospace<br>"
                 +"->   In Score.java and Start.java : consolas , berlin sans fb , goudy stout , kristen ITC , bahnschrift , bernard MT<br>"
                 +"3. If you found any bug in this project then you can DM me about that in Instagram(You will get the link from github)<br>"
-                +"4. When you run this Start.java , it may take 5-10 seconds to render everything. If it does not render anything then move/shake the window one time"
                 +"<html>"
         );
         infoList.setBounds(20,100,1500,300);
